@@ -1,11 +1,19 @@
-# movieApp
-HTML, CSS &amp; Vanilla JS and TMDB APIs
+# MovieApp
 
-## Link => [MovieApp](https://movieapp-6731e.web.app/)
+## Link
 
-## Responsive MovieApp
+* [MovieApp](https://movieapp-6731e.web.app/)
 
-* Media queries used
+## Technologies 
+* HTML5
+* CSS3
+* Vanilla JavaScript 
+* RESTfull API [TMDB](https://www.themoviedb.org/?language=en-GB)
+
+## Features 
+* Search by menu
+* API pagination
+* Responsive webpage
 
 ## Demo
 
