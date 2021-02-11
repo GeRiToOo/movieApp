@@ -11,7 +11,7 @@
 * RESTfull API [TMDB](https://www.themoviedb.org/?language=en-GB)
 
 ## Features 
-* Search by menu
+* Search by Movie's name
 * API pagination
 * Responsive webpage
 
