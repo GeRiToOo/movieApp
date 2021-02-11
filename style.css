@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #1c4a50;
+    --secondary-color: #3fd4da;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0;
+}
+
+header,
+main,
+footer {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+header {
+    padding: 2em 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    header {
+        height: 200px;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+}
+
+header img {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+}
+
+.all {
+    background-color: var(--secondary-color);
+    padding: 0.8em 1.5em;
+    border-radius: 50px;
+    width: 250px;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.all:focus {
+    outline: none;
+}
+
+/* Search Form */
+form {
+    width: 250px;
+}
+
+.search {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    border: 2px solid var(--secondary-color);
+    color: #fff;
+    font-family: inherit;
+    padding: 0.5em 1em;
+}
+
+.search::placeholder {
+    color: var(--secondary-color);
+}
+
+.search:focus {
+    outline: 0;
+    background-color: var(--secondary-color);
+}
+
+.search:focus::placeholder {
+    color: var(--primary-color);
+}
+
+@media (max-width: 800px) {
+    .all {
+        margin-top: 2em;
+    }
+
+    form {
+        margin-top: 1em;
+    }
+}
+
+/* -------------------------------
+* * * * * * MAIN CONTENT * * * * * 
+---------------------------------*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noMovies {
+    font-size: 2.3em;
+    color: var(--secondary-color);
+    margin-top: 2em;
+}
+
+/* -------------------------------
+* * * * * * * MOVIES * * * * * * *  
+---------------------------------*/
+
+.movies-container {
+    min-height: 65vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+/* Movie Cart */
+.movie {
+    width: 300px;
+    margin: 1em;
+    background-color: var(--secondary-color);
+    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.75);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Movie Details */
+.movie-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    letter-spacing: 0.5px;
+    height: auto;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgb(104, 103, 103);
+    width: 100%;
+    opacity: 0;
+    transition: all 0.6s ease-in-out 0.3s;
+}
+
+.movie-info h2 {
+    color: var(--primary-color);
+    max-width: 80%;
+}
+
+.movie-info span {
+    margin-top: 0.5em;
+    color: rgb(255, 255, 255);
+    padding: 0.2em 0.5em;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+/* Rating Classes */
+.movie-info span.green {
+    background-color: rgb(5, 128, 5);
+}
+
+.movie-info span.orange {
+    background-color: rgb(216, 102, 36);
+}
+
+.movie-info span.red {
+    background-color: rgb(156, 5, 5);
+}
+
+/* Year section of movie details */
+.year {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0;
+    border-bottom: 1px solid rgb(104, 103, 103);
+    opacity: 0;
+    transition: all 0.6s ease-in-out 0.4s;
+}
+
+.year span {
+    color: rgb(2, 71, 62);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+/* Genres section of movie details */
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1em 0;
+    border-bottom: 1px solid rgb(104, 103, 103);
+    opacity: 0;
+    transition: all 0.6s ease-in-out 0.6s;
+}
+
+.genres span {
+    margin-right: 0.5em;
+    color: rgb(199, 52, 101);
+    font-size: 1em;
+    font-weight: 600;
+}
+
+/* Overview section of movie details */
+.overview {
+    padding: 1.5em 0;
+    opacity: 0;
+    transition: all 0.6s ease-in-out 0.8s;
+}
+
+.details {
+    background-color: #fff;
+    padding: 2em;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    overflow-x: scroll;
+    transform: translateY(-101%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(1, 0.5, 0.6, 1);
+}
+
+.movie:hover .details {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.movie:hover .movie-info,
+.movie:hover .year,
+.movie:hover .genres,
+.movie:hover .overview {
+    opacity: 1;
+}
+
+/* -------------------------------
+* * * * * Pagination * * * * * * *  
+---------------------------------*/
+.pagination {
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination button {
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 1em;
+    margin: 0.5em;
+    padding: 0.5em 0.6em;
+}
+
+.pagination button:hover {
+    background-color: #fff;
+}
+
+.pagination button:focus {
+    outline: none;
+}
+
+.pagination button.active {
+    background-color: #fff;
+}
+
+@media (max-width: 640px) {
+    .pagination button {
+        cursor: pointer;
+        border: none;
+        border-radius: 2px;
+        width: 40px;
+        height: 30px;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        font-size: 1em;
+        margin: 0.2em;
+        padding: 0.5em;
+    }
+}
+
+/* -------------------------------
+* * * * * * * Footer * * * * * * *  
+---------------------------------*/
+
+footer {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    color: var(--secondary-color);
+}
+
+@media (max-width: 800px) {
+    body {
+        font-size: 14px;
+    }
+}
