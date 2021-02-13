@@ -8,7 +8,7 @@
 * HTML5
 * CSS3
 * Vanilla JavaScript 
-* RESTfull API [TMDB](https://www.themoviedb.org/?language=en-GB)
+* RESTfull API [TMDB APIs](https://www.themoviedb.org/?language=en-GB)
 
 ## Features 
 * Search by Movie's name
